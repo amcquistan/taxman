@@ -5,7 +5,7 @@ const svc = require('../services')
 
 const getTaxRate = (req, res) => {
     const state = req.params.stateName
-    svc.scrapeTaxRates(req.params.stateName, stateUrls[state.toLowerCase()], (rates) => {
+    svc.scrapeTaxRates(state, stateUrls[state.toLowerCase()], (rates) => {
         const rate = rates.find(rate => {
             return rate.city.toLowerCase() === req.params.cityName.toLowerCase() 
         })
